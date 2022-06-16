@@ -1,21 +1,30 @@
+import { useState, useEffect } from 'react';
+import { investmentsData } from './service/investments.service';
+
+import Header from './components/Header';
+import Section from './components/Section';
+import Table from './components/Table';
+
 export default function App() {
-  console.log('Teste no console do navegador');
+  const [investments, setInvestments] = useState([]);
+
+  useEffect(() => {
+    setInvestments(investmentsData);
+  }, []);
 
   return (
     <div>
-      <header>
-        <div className="bg-gray-100 mx-auto p-4">
-          <h1 className="text-center font-semibold text-xl">
-            Projeto base para o Módulo React I
-          </h1>
-        </div>
-      </header>
-
-      <main>
-        <div className="container mx-auto p-4">
-          <h2>O conteúdo fica aqui.</h2>
-        </div>
-      </main>
+      <Header>react-investiments v.1.0.1</Header>
+      <div className="m-4">
+        <Section titulo="Fundo de Ações" subtitulo="Rendimento total: " />
+        <Table />
+      </div>
+      <div className="m-4">
+        <Section
+          titulo="Fundo de Criptomoedas"
+          subtitulo="Rendimento total: "
+        />
+      </div>
     </div>
   );
 }
