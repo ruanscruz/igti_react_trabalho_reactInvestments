@@ -1,4 +1,4 @@
-export default function Header({ children }) {
+function Header({ children }) {
   return (
     <header>
       <div className="bg-green-300 mx-auto p-2">
@@ -7,3 +7,5 @@ export default function Header({ children }) {
     </header>
   );
 }
+
+export { Header };
